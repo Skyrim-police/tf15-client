@@ -1,5 +1,13 @@
 name: Build
-on: [push]
+on: 
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   android:
@@ -32,8 +40,8 @@ jobs:
         working-directory: build
       - uses: actions/upload-artifact@v2
         with:
-           name: Windows
-           path: build/cl_dll/Release/client.dll
+          name: Windows
+          path: build/cl_dll/Release/client.dll
   linux:
     name: Linux
     runs-on: ubuntu-latest
@@ -50,5 +58,7 @@ jobs:
         working-directory: build
 #      - uses: actions/upload-artifact@v2
 #        with:
+#          name: Linux
+#          path: build/cl_dll/Release/client.so
 #          name: Linux
 #          path: build/cl_dll/Release/client.so
