@@ -56,9 +56,9 @@ jobs:
           cmake -S . -B build -G Ninja
       - run: cmake --build . --config Release
         working-directory: build
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: Linux
-#          path: build/cl_dll/Release/client.so
+      - uses: actions/upload-artifact@v2
+        with:
+         name: Linux
+         path: build/cl_dll/Release/client.so
 #          name: Linux
 #          path: build/cl_dll/Release/client.so
